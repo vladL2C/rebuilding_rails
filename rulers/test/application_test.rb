@@ -15,4 +15,10 @@ class RulersAppTest < Minitest::Test
     body = last_response.body
     assert(body["Hello"])
   end
+
+  def test_includes_rulers
+    get "/"
+    body = last_response.body
+    assert(body["Rulers"])
+  end
 end
