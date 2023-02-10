@@ -1,5 +1,5 @@
 source :rubygems
-gem 'rulers', path: "../rulers"
+gem 'rulers'
 
 group :development, :test do
   gem "standard"
