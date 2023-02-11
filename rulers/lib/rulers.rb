@@ -9,9 +9,9 @@ module Rulers
     def call(env)
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
-      `echo debug > debug.txt`
+      text = controller.send(act)
       [200, {"Content-Type" => "text/html"},
-        ["Hello from Ruby on Rulers!"]]
+        [text]]
     end
   end
 
