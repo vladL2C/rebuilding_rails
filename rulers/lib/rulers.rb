@@ -6,16 +6,30 @@ require "rulers/routing"
 
 module Rulers
   class Application
+    PATH_INFO = "PATH_INFO"
+    CONTENT_TYPE = {"Content-Type" => "text/html"}
     def call(env)
-      if env["PATH_INFO"] == "/favicon.ico"
+      if env[PATH_INFO] == "/favicon.ico"
         return [404,
-          {"Content-Type" => "text/html"}, []]
+          CONTENT_TYPE, []]
+      end
+
+      # root path
+      if env[PATH_INFO] == "/"
+        return [301,
+          {**CONTENT_TYPE, "Location" => "/quotes/a_quote"}, []]
       end
 
       klass, act = get_controller_and_action(env)
       controller = klass.new(env)
-      text = controller.send(act)
-      [200, {"Content-Type" => "text/html"},
+
+      begin
+        text = controller.send(act)
+      rescue
+        text = "oooops someting fialed"
+      end
+
+      [200, CONTENT_TYPE,
         [text]]
     end
   end
