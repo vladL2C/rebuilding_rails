@@ -23,6 +23,8 @@ module Rulers
       Rulers.to_underscore(klass)
     end
 
+    private
+
     def get_instance_variables
       instance_variables.each_with_object({}) { |variable, variables| variables[variable] = instance_variable_get(variable) }
     end
