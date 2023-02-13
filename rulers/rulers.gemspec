@@ -37,6 +37,7 @@ Gem::Specification.new do |spec|
   spec.add_development_dependency "rack-test", "~> 2.0"
   spec.add_development_dependency "minitest", "~> 5.17"
   spec.add_development_dependency "standard", "~> 1.24"
+  spec.add_runtime_dependency "multi_json"
 
   # For more information and examples about making a new gem, check out our
   # guide at: https://bundler.io/guides/creating_gem.html
