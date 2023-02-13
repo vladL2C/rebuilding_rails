@@ -2,12 +2,14 @@ PATH
   remote: ../rulers
   specs:
     rulers (0.0.2)
+      erubis (~> 2.7)
       rack (~> 2.2)
 
 GEM
   remote: http://rubygems.org/
   specs:
     ast (2.4.2)
+    erubis (2.7.0)
     ffi (1.15.5)
     json (2.6.3)
     language_server-protocol (3.17.0.3)
