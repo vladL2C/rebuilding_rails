@@ -14,7 +14,7 @@ module Rulers
 
       eruby = Erubis::Eruby.new(template)
 
-      eruby.result(locals.merge(controller_name: controller_name, env: @env, **get_instance_variables))
+      eruby.result(locals.merge(**get_instance_variables, controller_name: controller_name, env: @env))
     end
 
     def controller_name
@@ -24,9 +24,7 @@ module Rulers
     end
 
     def get_instance_variables
-      self
-        .class
-        .instance_variables.each_with_object({}) { |variable, variables| variables[variable] = instance_variable_get(variable) }
+      instance_variables.each_with_object({}) { |variable, variables| variables[variable] = instance_variable_get(variable) }
     end
   end
 end
