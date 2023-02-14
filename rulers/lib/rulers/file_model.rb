@@ -48,6 +48,10 @@ module Rulers
 
         FileModel.new("db/quotes/#{id}.json")
       end
+
+      def self.where(attributes = {})
+        all.select { |model| attributes.all? { |k, v| model[k] == v } }
+      end
     end
   end
 end
