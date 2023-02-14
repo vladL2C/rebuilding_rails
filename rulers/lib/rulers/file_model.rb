@@ -40,11 +40,7 @@ module Rulers
         }
 
         files = Dir["db/quotes/*.json"]
-        puts "THE FILES"
-        puts files
         names = files.map { |f| File.split(f).last }
-        puts "THE NAMES"
-        puts names
         highest = names.map(&:to_i).max
         id = highest + 1
 
