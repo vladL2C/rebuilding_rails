@@ -27,6 +27,14 @@ class QuotesController < Rulers::Controller
     render(:quote, {obj: m})
   end
 
+  def from_me
+    attrs = {
+      attribution: "Me"
+    }
+
+    p FileModel.where(attrs)
+  end
+
   def exception
     raise "It's a bad one!"
   end
