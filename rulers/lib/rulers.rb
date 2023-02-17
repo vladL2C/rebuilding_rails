@@ -33,8 +33,13 @@ module Rulers
         text = "oooops someting fialed"
       end
 
-      [200, CONTENT_TYPE,
-        [text]]
+      if controller.get_response
+        st, hd, rs = controller.get_response.to_a
+        [st, hd, [rs].flatten]
+      else
+        [200, CONTENT_TYPE,
+          [text]]
+      end
     end
   end
 end
