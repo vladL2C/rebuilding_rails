@@ -10,6 +10,13 @@ module Rulers
         @hash = data
       end
 
+      def method_missing(method)
+        @hash[method.to_s]
+      end
+
+      def respond_to_missing?
+      end
+
       def self.to_sql(val)
         case val
         when Numeric
