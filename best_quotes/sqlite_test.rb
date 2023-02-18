@@ -18,6 +18,6 @@ mt.save!
 
 mt2 = MyTable.find(mt["id"])
 
-puts "Title: #{mt2["title"]}"
+puts "Title: #{mt2.title} - #{mt2.body}"
 
 puts mt2.title
